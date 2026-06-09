@@ -66,7 +66,7 @@ const html = `<!doctype html>
     h1 { max-width: 900px; margin: 18px 0; font-size: clamp(44px, 8vw, 104px); line-height: .92; letter-spacing: -.06em; }
     .lede { max-width: 760px; color: var(--muted); font-size: clamp(18px, 2.2vw, 24px); line-height: 1.55; }
     .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 34px; }
-    .metric { border: 1px solid rgba(255,255,255,.09); border-radius: 18px; background: rgba(255,255,255,.04); padding: 20px; }
+    .metric,.proof-card { border: 1px solid rgba(255,255,255,.09); border-radius: 18px; background: rgba(255,255,255,.04); padding: 20px; }
     .metric strong { display: block; font-size: 34px; }
     .metric span { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .12em; }
     .section { margin-top: 28px; border: 1px solid var(--line); border-radius: 26px; background: rgba(12,23,38,.74); padding: clamp(22px, 3vw, 34px); }
@@ -81,10 +81,13 @@ const html = `<!doctype html>
     dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
     dd { margin: 4px 0 0; font-weight: 800; }
     .action { color: var(--text); border-top: 1px solid rgba(255,255,255,.08); padding-top: 14px; }
+    .proof { display:grid; grid-template-columns:repeat(2, 1fr); gap:16px; margin-top:18px; }
+    .proof-card h3 { margin:8px 0 10px; }
+    .proof-card a { color:var(--cyan); text-decoration:none; }
     footer { color: var(--muted); padding: 24px 0 0; font-size: 14px; }
     @media (max-width: 760px) {
       main { padding: 28px 0; }
-      .metrics, .grid { grid-template-columns: 1fr; }
+      .metrics, .grid, .proof { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -105,6 +108,14 @@ const html = `<!doctype html>
       <h2>Exception register</h2>
       <p><strong>Primary recommendation:</strong> ${ledger.summary.primaryRecommendation}</p>
       <div class="grid">${laneCards}</div>
+      <div class="proof" aria-label="Product depth and shared pattern">
+        <article class="proof-card"><div class="eyebrow">Product purpose</div><h3>What this product does</h3><p>Turns Camunda incidents, failed jobs, overdue human tasks, SLA breach rates, evidence completeness, and owner routing into one process exception control plane.</p></article>
+        <article class="proof-card"><div class="eyebrow">Buyer lens</div><h3>Why leaders care</h3><p>Automation ROI disappears when exceptions move into manual queues nobody owns. This page shows where process drag is concentrated and what must change next.</p></article>
+        <article class="proof-card"><div class="eyebrow">Value architecture</div><h3>How it turns into action</h3><p>The console gives teams a remediation sequence: stabilize the exception lane, assign an accountable owner, close evidence gaps, and decide whether to automate, redesign, or escalate.</p></article>
+        <article class="proof-card"><div class="eyebrow">Technical proof</div><h3>What reviewers can inspect</h3><p>The repo keeps typed process scoring, synthetic BPMN-style fixtures, deterministic static rendering, and CI checks together without exposing tenant workflow data.</p></article>
+        <article class="proof-card"><div class="eyebrow">What these repos have in common</div><h3>Platform complexity becomes board-ready operating proof.</h3><p>Each repo names a buyer pain, exposes an evidence model, produces a reusable decision surface, and keeps the demo boundary safe with synthetic data.</p></article>
+        <article class="proof-card"><div class="eyebrow">Interlinks</div><h3>Where this fits</h3><p><a href="https://portfolio.kineticgain.com/">Portfolio</a> · <a href="https://kineticgain.com/">Kinetic Gain</a> · <a href="https://github.com/mizcausevic-dev/camunda-process-exception-console">GitHub</a></p></article>
+      </div>
     </section>
     <footer>Camunda Process Exception Console · synthetic proof surface · no tenant data</footer>
   </main>
